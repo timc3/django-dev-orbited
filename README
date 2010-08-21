@@ -1,0 +1,64 @@
+django-dev-orbited Proxy
+=========================================================
+
+This is a very simple proxy server for serving django
+orbited and morbidq using Twisted.
+
+When developing a realtime service you need a way to 
+perform simple development tasks without resorting
+to using proper production quality proxy tools.
+
+
+Requirements
+------------
+
+The following packages are needed
+
+ - Your django project
+ - twisted
+ - orbited (requires twisted itself)
+ - Django
+
+
+Overview
+--------
+
+It uses Twisted to startup Django, serve your development
+files, and then starts orbited and morbidq.
+
+
+Usage
+-----
+
+Put server.py in the directory above your django project.
+Put twisted_wsgi.py in the same directory as your project (thats
+the same as where you keep settings.py and manage.py).
+
+Change "djangoproject." on line 33 in server.py and line 15 of
+twisted_wsgi.py to the name of the folder of
+your django project.
+
+Run "twistd -ny server.py"
+
+
+Ports
+-----
+
+Feel free to change the ports, PORT and STOMP_PORT to the port
+that your django project and the STOMP server will be served
+from respectively.
+
+
+What is doesn't do
+------------------
+
+Give you a framework for developing your own application, 
+for an excellent examples of django + orbited try looking
+at HotDot.
+
+
+Props
+------
+
+Thanks to clemesha and his Hotdot project for inspiring this
+and providing the starting point.
